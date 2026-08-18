@@ -3,6 +3,23 @@
 SOURCE="/opt/app"
 BACKUP_DIR="/backup"
 DATE=$(date +%F)
+
+BACKUP_FILE="$BACKUP_DIR/app_backup_$DATE.tar.gz"
+
+tar -czf "$BACKUP_FILE" "$SOURCE"
+
+if [ $? -eq 0 ]; then
+    echo "Backup successful"
+else
+    echo "Backup not successful"
+fi
+
+-----------------------------------------------------------------------------------------------------------------------------
+#!/bin/bash
+
+SOURCE="/opt/app"
+BACKUP_DIR="/backup"
+DATE=$(date +%F)
 BACKUP_FILE="$BACKUP_DIR/app_backup_$DATE.tar.gz"
 
 tar -czf "$BACKUP_FILE" "$SOURCE"
